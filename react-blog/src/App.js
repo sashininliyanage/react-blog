@@ -1,11 +1,22 @@
+import React from 'react';
+
+// Components
+import TopBar from './components/TopBar';
+import Header from './components/Header';
+import Home from './components/Home';
+
+// Styles
+import {GlobalStyle} from './GlobalStyle';
+
 
 function App() {
   return (
-    <div>
-      <div>
-    <p></p>
-      </div>
-    </div>
+    <>
+      <TopBar/>
+      <Header/>
+      <Home/>
+      <GlobalStyle/>
+    </>
   );
 }
 

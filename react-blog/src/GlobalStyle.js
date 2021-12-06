@@ -5,9 +5,9 @@ export const GlobalStyle = createGlobalStyle `
     :root{
         --maxWidth: 1280px;
         --white: #fff;
-        --lightColor: #eee;
-        --medColor: #116466;
-        --darkColor: #2C3531;
+        --lightColor: #68bac5;
+        --medColor: #68bac5;;
+        --darkColor: #0b2d50;
         --fontSuperBig: 2.5rem;
         --fontBig: 1.5rem;
         --fontMed: 1.2rem;
@@ -40,7 +40,6 @@ export const GlobalStyle = createGlobalStyle `
 
         p {
             font-size: 1rem;
-            color: var(--white);
         }
     }
 

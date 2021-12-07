@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link}
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Components
 import Home from './components/Home';
 import SinglePost from './components/SinglePost'
@@ -11,24 +11,26 @@ import {GlobalStyle} from './GlobalStyle';
 
 
 function App() {
-  
+  const [user, setUser] = useState(true)
   const [scrollY, setScrollY] = useState(window.scrollY)
 
   useEffect(() =>{
     window.addEventListener("scroll", ()=>{
       setScrollY(window.scrollY)
-    },[]);
+    });
 
   })
 
   return (
-    <>
-      {/* <Home scrollY={scrollY}/> */}
-      {/* <SinglePost/> */}
-      {/* <Write/> */}
-      <Login/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home scrollY={scrollY} user={user}/>} />
+        <Route path="/write" element={user?<Write user={user}/>:<Login/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/:id" element={<SinglePost user={user}/>} />
+      </Routes>
       <GlobalStyle/>
-    </>
+    </Router>
   );
 }
 

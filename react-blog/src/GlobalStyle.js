@@ -48,8 +48,8 @@ export const GlobalStyle = createGlobalStyle `
         background-color: var(--darkColor);
     }
 
-    .custom-toggler{
-        border: none;
+    .navbar-toggler{
+        border: 0px!important;
         outline:0;
     }
 `

@@ -11,7 +11,7 @@ import noHeaderImg from '../../images/defaultheader.jpg'
 export const Write = () => {
     return (
         <>
-        <Navbar/>
+        <Navbar user={true}/>
         <Wrapper>
         <div className="card mb-3">
         <form action="">

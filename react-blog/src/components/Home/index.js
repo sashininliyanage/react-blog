@@ -9,10 +9,10 @@ import Posts from '../Posts';
 // Styles
 import {Wrapper} from './Home.styles'
 
-export const Home = ({scrollY}) => {
+export const Home = ({scrollY, user}) => {
     return (
         <>
-        <Navbar scrollY={scrollY}/>
+        <Navbar scrollY={scrollY} user={user}/>
         <Header/>
         <Wrapper>
             <Posts/>

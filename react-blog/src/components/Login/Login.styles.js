@@ -27,6 +27,8 @@ export const Form = styled.div`
     flex: 1;
     display: flex;
     align-items: center;
+    color: var(--darkColor);
+    font-weight: 500;
     justify-content: flex-start;
 
     @media screen and (max-width:980px){
@@ -47,7 +49,7 @@ export const Form = styled.div`
     }
 
     .card{
-        background-color: rgba(0, 0, 0,0.6);
+        background-color: rgba(255, 255, 255,0.5);
     }
 
 `;

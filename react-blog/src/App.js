@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
 // Components
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SinglePost from './components/SinglePost'
+import Write from './components/Write'
+import Login from './components/Login'
 
 // Styles
 import {GlobalStyle} from './GlobalStyle';
@@ -22,9 +23,10 @@ function App() {
 
   return (
     <>
-      <Navbar scrollY={scrollY}/>
-      {/* <Home/> */}
-      <SinglePost/>
+      {/* <Home scrollY={scrollY}/> */}
+      {/* <SinglePost/> */}
+      {/* <Write/> */}
+      <Login/>
       <GlobalStyle/>
     </>
   );

@@ -1,52 +1,21 @@
 import React from 'react'
 
 import {Wrapper} from './Sidebar.styles'
-import './Sidebar.styles.css'
+import Post from '../Post'
 
+// Images
+import img8 from '../../images/portfolio-8.jpg';
+import img9 from '../../images/portfolio-9.jpg';
 
 const Sidebar = () => {
+    const text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
+    
     return (
         <Wrapper>
-
-            <div className="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" className="img img-responsive"/>
-            <div className="profile-content">
-                <div className="profile-name">John Doe
-                    <p>@johndoedesigner</p>
-                </div>
-                <div className="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</div>
-                <div className="row">
-                    <div className="col-xs-4">
-                        <div className="profile-overview">
-                            <p>LIKES</p>
-                            <h4>250</h4></div>
-                    </div>
-                    <div className="col-xs-4">
-                        <div className="profile-overview">
-                            <p>COMMENTS</p>
-                            <h4>168</h4></div>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div className="profile-card-4 text-center"><img src="http://envato.jayasankarkr.in/code/profile/assets/img/profile-4.jpg" className="img img-responsive"/>
-            <div className="profile-content">
-                <div className="profile-name">John Doe
-                    <p>@johndoedesigner</p>
-                </div>
-                <div className="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</div>
-                <div className="row">
-                    <div className="col-xs-4">
-                        <div className="profile-overview">
-                            <p>LIKES</p>
-                            <h4>250</h4></div>
-                    </div>
-                    <div className="col-xs-4">
-                        <div className="profile-overview">
-                            <p>COMMENTS</p>
-                            <h4>168</h4></div>
-                    </div>
-                </div>
-            </div>
+            <h3>What's new?</h3>
+            <div className="row row-cols-1 g-4">
+            <Post title={"Title"} imageUrl={img8} text={text} date={"7/12/2021"}/>
+            <Post title={"Title"} imageUrl={img9} text={text} date={"8/12/2021"}/>
             </div>
         </Wrapper>
     )

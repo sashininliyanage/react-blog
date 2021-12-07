@@ -13,10 +13,10 @@ const Header = () => {
         <>
         <Image image={headerImage}>
             <Overlay>
-            <p>This pen is <span
+            <p>Want to <span
                 className="txt-rotate"
                 data-period="2000"
-                data-rotate='[ "nerdy.", "simple.", "pure JS.", "pretty.", "fun!" ]'></span>
+                data-rotate='[ "learn react?", "know fun facts?", "new things"]'></span>
             </p>
             </Overlay>
         </Image>

@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle `
 
     body {
         margin: 0;
-        padding: 50px 0 20px 0;
+        padding: 0 0 20px 0;
 
         h1{
             font-size: 2rem;
@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle `
         }
 
         h3{
-            font-size: 1.1rem;
+            font-size: 1.5rem;
             font-weight: 600;
         }
 

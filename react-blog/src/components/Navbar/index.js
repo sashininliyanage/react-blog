@@ -1,9 +1,9 @@
 import React from 'react';
-import './Navbar.styles'
+import { Theme} from './Navbar.styles'
 
-const TopBar = () => {
+const Navbar = ({scrollY}) => {
     return (
-    <nav className="navbar navbar-expand-sm navbar-dark fixed-top navbar-custom-color px-5">
+    <Theme className='navbar navbar-expand-sm navbar-dark fixed-top px-5' opacity={scrollY}>
        
             <a href="#" className="navbar-brand">Blog</a>
             <button className="navbar-toggler custom-toggler" type='button' data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -26,9 +26,9 @@ const TopBar = () => {
                 </ul>
             </div>
        
-    </nav>
+    </Theme>
 
     )
 }
 
-export default TopBar
+export default Navbar

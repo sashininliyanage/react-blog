@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import {BrowserRouter as Router, Switch, Route, Link}
 // Components
 import Home from './components/Home';
 import SinglePost from './components/SinglePost'

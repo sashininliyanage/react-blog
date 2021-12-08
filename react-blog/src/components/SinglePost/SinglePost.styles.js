@@ -7,9 +7,6 @@ export const Wrapper = styled.div`
 
     @media screen and (max-width:768px){
         padding: 100px 5%;
-    }
-    
-    @media screen and (max-width:700px){
         display: block;
     }
 `;

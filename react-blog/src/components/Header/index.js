@@ -16,7 +16,7 @@ const Header = () => {
             <p>Want to <span
                 className="txt-rotate"
                 data-period="2000"
-                data-rotate='[ "learn react?", "know fun facts?", "new things"]'></span>
+                data-rotate='[ "learn react?", "know fun facts?", "new things?"]'></span>
             </p>
             </Overlay>
         </Image>

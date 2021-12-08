@@ -44,6 +44,10 @@ export const GlobalStyle = createGlobalStyle `
         }
     }
 
+    a:-webkit-any-link {
+        text-decoration: none;
+        color: inherit;
+    }
     .navbar-custom-color{
         background-color: var(--darkColor);
     }

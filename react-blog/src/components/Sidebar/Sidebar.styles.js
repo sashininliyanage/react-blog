@@ -20,5 +20,6 @@ export const Wrapper = styled.div`
 
     @media screen and (max-width:768px){
         display: block;
+        flex:3;
     }
 `;

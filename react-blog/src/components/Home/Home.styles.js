@@ -5,7 +5,11 @@ export const Wrapper = styled.div`
     padding: 50px 50px;
     display: flex;
 
-    @media screen and (max-width:700px){
+    @media screen and (max-width:768px){
+        padding: 100px 5%;
+    }
+    
+    @media screen and (max-width:600px){
         display: block;
     }
 `;

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 // Styles
 import {Wrapper, Form, Logo} from './Login.styles'
@@ -11,17 +12,24 @@ const Login = ({error}) => {
             </Logo>
             <Form>
             <div className="card text-dark mb-3" style={{"minWidth":"400px"}}>
-            <div className="card-header text-black"><h4>Login</h4></div>
+            <div className="card-header text-black py-0">
+                <div style={{"display":"flex","justifyContent":"space-between","alignItems":"center"}}>
+                <h4>Login</h4>
+                <div>
+                <Link to="/register"><p className="text-muted pt-3">Register</p></Link>
+                </div>
+                </div>
+            </div>
             <div className="card-body">
             <form id="login">
-                <small id="emailHelp" className="form-text .text-danger">{error}</small>
+                <small id="loginError" className="form-text .text-danger">{error}</small>
                 <label  htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                <input type="email" className="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
                 
                 <label  htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                <input type="password" className="form-control" id="loginPassword" placeholder="Password" required/>
                 
-                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                <input type="checkbox" className="form-check-input" id="rememberMe" />
                 <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
             <div style={{textAlign: 'center'}}>
             <button type="submit" className="btn">Login</button>

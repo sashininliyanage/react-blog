@@ -9,4 +9,10 @@ export const Theme = styled.div`
     .navbar-brand{
         color:rgba(255, 255, 255, ${({ opacity }) => (opacity<250)?(0):1}) ;
     }
+
+    padding: 10px 50px;
+
+    @media screen and (max-width:768px){
+        padding: 10px 5%;
+    }
 `;

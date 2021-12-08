@@ -5,6 +5,7 @@ import Home from './components/Home';
 import SinglePost from './components/SinglePost'
 import Write from './components/Write'
 import Login from './components/Login'
+import Register from './components/Register'
 
 // Styles
 import {GlobalStyle} from './GlobalStyle';
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home scrollY={scrollY} user={user}/>} />
         <Route path="/write" element={user?<Write user={user}/>:<Login/>} />
+        <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/:id" element={<SinglePost user={user}/>} />
       </Routes>

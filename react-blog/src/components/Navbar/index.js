@@ -5,7 +5,7 @@ import { Theme} from './Navbar.styles'
 
 const Navbar = ({scrollY, user}) => {
     return (
-    <Theme className='navbar navbar-expand-sm navbar-dark fixed-top px-5' opacity={scrollY}>
+    <Theme className='navbar navbar-expand-sm navbar-dark fixed-top' opacity={scrollY}>
        
             <Link to="/" className="navbar-brand ">Blog</Link>
             <button className="navbar-toggler custom-toggler shadow-none" type='button' data-bs-toggle="collapse" data-bs-target="#navmenu">

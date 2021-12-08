@@ -10,8 +10,14 @@ export const Wrapper = styled.div`
     }
 
     .customBtn{
-        width: 150px;
+        width: 20%;
+        min-width: fit-content;
+        max-width: 150px;
         color: white;
         background-color: var(--darkColor);
+    }
+
+    @media screen and (max-width:768px){
+        padding: 100px 5%;
     }
 `;

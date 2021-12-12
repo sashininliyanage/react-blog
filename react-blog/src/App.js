@@ -29,7 +29,7 @@ function App() {
         <Route path="/write" element={user?<Write user={user}/>:<Login/>} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />
-        <Route path="/post/:id" element={<SinglePost user={user}/>} />
+        <Route path="/post/:postId" element={<SinglePost user={user}/>} />
       </Routes>
       <GlobalStyle/>
     </Router>

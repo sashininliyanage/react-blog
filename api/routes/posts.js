@@ -68,10 +68,22 @@ router.get("/:id",async(req,res) => {
     }
 })
 
+// GET NEW POSTS
+// router.get("/new",async(req,res) => {
+//     try{
+//         const post = await Post.find().sort( { "createdAt": 1 } ).limit(5);
+//         res.status(200).json(post)
+//     }catch(error){
+//         res.status(500).json(error)
+//     }
+// })
+
+
 // GET ALL POSTS
 router.get("/",async(req,res) => {
     const username = req.query.user;
     const category = req.query.category;
+    const newPosts = req.query.new;
     try{
         let posts;
         if(username){
@@ -80,6 +92,8 @@ router.get("/",async(req,res) => {
             posts = await Post.find({category:{
                 $in:[category]
             }})
+        }else if(newPosts){
+            posts = await Post.find().sort( { "createdAt": -1 } ).limit(3);
         }else{
             posts = await Post.find();
         }

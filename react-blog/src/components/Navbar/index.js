@@ -16,11 +16,22 @@ const Navbar = ({scrollY, user}) => {
                     <li className="nav-item">
                         <Link to="/" className="nav-link">Home</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to="/about" className="nav-link">About</Link>
+                    <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a className="dropdown-item" href="#">Action</a></li>
+                        <li><a className="dropdown-item" href="#">Another action</a></li>
+                        <li><hr className="dropdown-divider"/></li>
+                        <li><a className="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                     </li>
                     <li className="nav-item">
                         <Link to="/write" className="nav-link">Write</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/about" className="nav-link">About</Link>
                     </li>
                     <li className="nav-item">
                         <Link to="/login" className="nav-link">{user?"Logout":"Login"}</Link>

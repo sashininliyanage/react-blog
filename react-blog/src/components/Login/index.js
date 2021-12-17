@@ -5,6 +5,12 @@ import {Link} from 'react-router-dom'
 import {Wrapper, Form, Logo} from './Login.styles'
 
 const Login = ({error}) => {
+
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        
+    }
     return (
         <Wrapper>
             <Logo className="font-effect-shadow-multiple">
@@ -22,7 +28,7 @@ const Login = ({error}) => {
             </div>
             <div className="card-body">
             <form id="login">
-                <small id="loginError" className="form-text .text-danger">{error}</small>
+                <small id="loginError" className="form-text text-danger">{error}</small>
                 <label  htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" className="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
                 
@@ -32,7 +38,7 @@ const Login = ({error}) => {
                 <input type="checkbox" className="form-check-input" id="rememberMe" />
                 <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
             <div style={{textAlign: 'center'}}>
-            <button type="submit" className="btn">Login</button>
+            <button type="submit" className="btn" onSubmit={handleSubmit}>Login</button>
             </div>
             </form>
             </div>

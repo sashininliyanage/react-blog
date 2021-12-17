@@ -26,6 +26,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home scrollY={scrollY} user={user}/>} />
+        <Route path="/posts" element={<Home scrollY={scrollY} user={user}/>} />
         <Route path="/write" element={user?<Write user={user}/>:<Login/>} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />

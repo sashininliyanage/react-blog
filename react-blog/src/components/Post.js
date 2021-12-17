@@ -15,9 +15,9 @@ const Post = ({post}) => {
                 <p className="card-text customStyles">{post.desc}</p>
             </div>
             <div className="card-footer">
-                <small className="text-muted">Author: {post.username}</small>
+                <small style={{"color": "#777"}}>Author: <Link to={`/posts?user=${post.username}`}>{post.username}</Link></small>
                 <br/>
-                <small className="text-muted">Last Update: {new Date(post.updatedAt).toDateString()}</small>
+                <small style={{"color": "#777"}}>Last Update: {new Date(post.updatedAt).toDateString()}</small>
             </div>
             </div>
         </div>

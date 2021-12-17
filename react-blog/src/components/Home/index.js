@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
 
 // Components
 import Navbar from '../Navbar';
@@ -12,15 +13,22 @@ import {Wrapper} from './Home.styles'
 
 export const Home = ({scrollY, user}) => {
     const [posts, setPosts] = useState([]);
+    const location = useLocation();
 
     useEffect(()=>{
+        console.log(location.search)
+        if(sessionStorage.getItem(`posts${location.search}`)){
+            setPosts(JSON.parse(sessionStorage.getItem(`posts${location.search}`)));
+            return
+        }
         const fetchPosts = async()=>{
-            const res = await axios.get("/posts")
+            const res = await axios.get(`/posts/${location.search}`)
+            sessionStorage.setItem(`posts${location.search}`, JSON.stringify(res.data))
             setPosts(res.data)
         }
 
         fetchPosts()
-    },[])
+    },[location])
 
     return (
         <>

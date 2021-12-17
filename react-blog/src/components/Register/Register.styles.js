@@ -4,11 +4,13 @@ import img from '../../images/header2.jpg'
 export const Wrapper = styled.div`
     height:100vh;
     display: flex;
-    background-image: url(${img});
+    background: url(${img});
     background-size: cover;
 
     @media screen and (max-width:980px){
         display:block;
+        background-size: cover;
+        height:100%;
     }
 
 `;

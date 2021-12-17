@@ -1,10 +1,35 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 // Styles
 import {Wrapper, Form, Logo} from './Register.styles'
 
-const Register = ({error}) => {
+const Register = () => {
+    const [username, setUsername] = useState()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+    const [error, setError] = useState("")
+    const navigate = useNavigate();
+
+    const handleSubmit= async(e)=>{
+       e.preventDefault();
+    
+       try{
+        setError("")
+        const res = await axios.post("/auth/register",{
+            username,
+            email,
+            password
+        })
+        navigate('/login');
+
+       }catch(error){
+            console.log(error.response.data)
+            setError(error.response.data)
+       }
+    }
+
     return (
         <Wrapper>
             <Logo className="font-effect-shadow-multiple">
@@ -21,17 +46,39 @@ const Register = ({error}) => {
                 </div>
             </div>
             <div className="card-body">
-            <form id="Register">
+            <form id="Register" onSubmit={handleSubmit}>
 
-                <small id="registerError" className="form-text .text-danger">{error}</small>
+                <p id="registerError" className="form-text text-danger p-0 m-0">{error}</p>
                 <label  htmlFor="userName">User name</label>
-                <input type="password" className="form-control" id="userName" placeholder="User name" required/>
+                <input 
+                type="text" 
+                className="form-control" 
+                id="userName" 
+                placeholder="User name" 
+                required
+                onChange={e=>setUsername(e.target.value)}
+                />
 
                 <label  htmlFor="registerEmail">Email address</label>
-                <input type="email" className="form-control" id="registerEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
+                <input 
+                type="email" 
+                className="form-control" 
+                id="registerEmail" 
+                aria-describedby="emailHelp" 
+                placeholder="Enter email" 
+                required
+                onChange={e=>setEmail(e.target.value)}
+                />
                 
                 <label  htmlFor="registerPassword">Password</label>
-                <input type="password" className="form-control" id="registerPassword" placeholder="Password" required/>
+                <input 
+                type="password" 
+                className="form-control" 
+                id="registerPassword" 
+                placeholder="Password" 
+                required
+                onChange={e=>setPassword(e.target.value)}
+                />
                 
                
             <div style={{textAlign: 'center'}}>

@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
         display:block;
     }
 
+    .btn:disabled{
+        background-color: #777;
+    }
+
 `;
 
 export const Logo = styled.div`

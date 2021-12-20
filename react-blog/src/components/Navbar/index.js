@@ -1,9 +1,21 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useContext} from 'react';
+import {Link,  useNavigate} from 'react-router-dom';
+import {Context} from '../context/Context'
 
 import { Theme} from './Navbar.styles'
+import img1 from '../../images/header1.jpg'
 
-const Navbar = ({scrollY, user}) => {
+const Navbar = ({scrollY}) => {
+    const {user} = useContext(Context)
+    const navigate = useNavigate();
+
+    const handleUser = ()=>{
+        if(user){
+            sessionStorage.clear()
+        }
+        navigate('/login')
+    }
+    
     return (
     <Theme className='navbar navbar-expand-sm navbar-dark fixed-top' opacity={scrollY}>
        
@@ -23,8 +35,13 @@ const Navbar = ({scrollY, user}) => {
                         <Link to="/about" className="nav-link">About</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/login" className="nav-link">{user?"Logout":"Login"}</Link>
+                        <p className="nav-link m-0" style={{"cursor":"pointer"}} onClick={handleUser}>{user?"Logout":"Login"}</p>
                     </li>
+                    {user &&
+                    <li className="nav-item">
+                    <img className="nav-link p-0" src={user.profilePic}/>
+                    </li>
+                    }
                 </ul>
             </div>
        

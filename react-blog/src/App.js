@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // Components
 import Home from './components/Home';
@@ -6,13 +6,14 @@ import SinglePost from './components/SinglePost'
 import Write from './components/Write'
 import Login from './components/Login'
 import Register from './components/Register'
+import {Context} from './components/context/Context'
 
 // Styles
 import {GlobalStyle} from './GlobalStyle';
 
 
 function App() {
-  const [user, setUser] = useState(true)
+  const {user} = useContext(Context)
   const [scrollY, setScrollY] = useState(window.scrollY)
 
   useEffect(() =>{
@@ -25,12 +26,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home scrollY={scrollY} user={user}/>} />
-        <Route path="/posts" element={<Home scrollY={scrollY} user={user}/>} />
-        <Route path="/write" element={user?<Write user={user}/>:<Login/>} />
+        <Route path="/" element={<Home scrollY={scrollY}/>} />
+        <Route path="/posts" element={<Home scrollY={scrollY}/>} />
+        <Route path="/write" element={user?<Write/>:<Login/>} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />
-        <Route path="/post/:postId" element={<SinglePost user={user}/>} />
+        <Route path="/post/:postId" element={<SinglePost/>} />
       </Routes>
       <GlobalStyle/>
     </Router>

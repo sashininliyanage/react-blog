@@ -1,16 +1,50 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { useContext, useRef, useEffect } from 'react'
+import {Context} from '../context/Context'
+import '../context/Actions'
+import {Link, useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 // Styles
 import {Wrapper, Form, Logo} from './Login.styles'
 
-const Login = ({error}) => {
+const Login = () => {
 
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const {dispatch, isFetching} = useContext(Context)
+    const navigate = useNavigate();
 
-    const handleSubmit = (e)=>{
+    useEffect(()=>{
+        if(localStorage.getItem("rememberMe")==="true"){
+            document.getElementById("rememberMe").checked = true
+            document.getElementById("email").value = localStorage.getItem("email")
+        }
+    },[])
+
+    const handleSubmit = async(e)=>{
         e.preventDefault();
+        dispatch({type:"LOGIN_START"})
+
+        localStorage.setItem("rememberMe", document.getElementById("rememberMe").checked)
+        if(document.getElementById("rememberMe").checked){
+            localStorage.setItem("email",emailRef.current.value)
+        }
+
+        try{
+            const res = await axios.post("/auth/login",{
+                email: emailRef.current.value,
+                password: passwordRef.current.value 
+                
+            })
+            dispatch({type:"LOGIN_SUCCESS",payload:res.data}) 
+            navigate('/');
+
+        }catch(error){
+            dispatch({type:"LOGIN_FAILURE"})
+        }
         
     }
+
     return (
         <Wrapper>
             <Logo className="font-effect-shadow-multiple">
@@ -27,18 +61,18 @@ const Login = ({error}) => {
                 </div>
             </div>
             <div className="card-body">
-            <form id="login">
-                <small id="loginError" className="form-text text-danger">{error}</small>
+            <form id="login" onSubmit={handleSubmit}>
+                <small id="loginError" className="form-text text-danger"></small>
                 <label  htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" required/>
+                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" ref={emailRef} required autoComplete="off"/>
                 
                 <label  htmlFor="exampleInputPassword1">Password</label>
-                <input type="password" className="form-control" id="loginPassword" placeholder="Password" required/>
+                <input type="password" className="form-control" placeholder="Password" ref={passwordRef} required/>
                 
-                <input type="checkbox" className="form-check-input" id="rememberMe" />
+                <input type="checkbox" className="form-check-input" id="rememberMe"/>
                 <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
             <div style={{textAlign: 'center'}}>
-            <button type="submit" className="btn" onSubmit={handleSubmit}>Login</button>
+            <button type="submit" className="btn" disabled={isFetching} >Login</button>
             </div>
             </form>
             </div>

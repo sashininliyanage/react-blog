@@ -16,7 +16,6 @@ router.post("/",async(req,res)=>{
  
 // UPDATE POST  
 router.put("/:id",async(req,res)=>{
-    if(req.body.postId === req.params.id){
         try{
             const post = await Post.findById(req.params.id)
             try{
@@ -32,9 +31,6 @@ router.put("/:id",async(req,res)=>{
         }catch(error){
             res.status(404).json("Post not found")
         }
-    }else{
-        res.status(401).json("Unauthorized access")
-    }  
 })
 
 // DELETE POST  

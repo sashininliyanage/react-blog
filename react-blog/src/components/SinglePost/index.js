@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useContext } from 'react'
-import { useParams} from 'react-router-dom';
+import { Link, useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 // Components
 import Navbar from '../Navbar';
@@ -13,7 +13,7 @@ const SinglePost = () => {
     const {user} = useContext(Context)
     const { postId } = useParams();
     const [post, setPost] = useState({});
-    
+    const Navigate = useNavigate()
     useEffect(()=>{
         const savedPost =  sessionStorage.getItem(`post${postId}`)
         if(savedPost){
@@ -38,6 +38,7 @@ const SinglePost = () => {
             })
             sessionStorage.removeItem("posts")
             sessionStorage.removeItem(`post${post._id}`)
+            Navigate('/')
         }catch(err){
 
         }
@@ -50,7 +51,7 @@ const SinglePost = () => {
             <div className="card">
             {post.username === user?.username &&
             <Icons>
-                <i className="bi bi-pencil-square"></i>
+                <Link to={`/edit/${post._id}`}><i className="bi bi-pencil-square"></i></Link>
                 <i className="bi bi-trash" data-bs-toggle="modal" data-bs-target="#deleteConfirm"></i>
             </Icons>}
             {post.photo &&(<img src={publicFolder +post.photo} className="card-img-bottom" alt="..."/>)}

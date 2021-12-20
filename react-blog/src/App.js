@@ -6,6 +6,7 @@ import SinglePost from './components/SinglePost'
 import Write from './components/Write'
 import Login from './components/Login'
 import Register from './components/Register'
+import Edit from './components/Edit'
 import {Context} from './components/context/Context'
 
 // Styles
@@ -20,7 +21,6 @@ function App() {
     window.addEventListener("scroll", ()=>{
       setScrollY(window.scrollY)
     });
-
   },[])
 
   return (
@@ -29,6 +29,7 @@ function App() {
         <Route path="/" element={<Home scrollY={scrollY}/>} />
         <Route path="/posts" element={<Home scrollY={scrollY}/>} />
         <Route path="/write" element={user?<Write/>:<Login/>} />
+        <Route path="/edit/:postId" element={<Edit/>} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />
         <Route path="/post/:postId" element={<SinglePost/>} />

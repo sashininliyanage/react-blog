@@ -7,8 +7,11 @@ export const Wrapper = styled.div`
 
     @media screen and (max-width:768px){
         padding: 100px 5%;
+    }
+    @media screen and (max-width: 600px){
         display: block;
     }
+    
 
     .btn{
         min-width: 80px;
@@ -27,7 +30,7 @@ export const Icons = styled.div`
     height: fit-to-content;
     padding: 0 10px;
 
-    i{
+    a,i{
         margin: 10px 5px;
         cursor: pointer;
         color: #777;

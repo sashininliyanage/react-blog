@@ -87,15 +87,15 @@ router.get("/",async(req,res) => {
     try{
         let posts;
         if(username){
-            posts= await Post.find({username})
+            posts= await Post.find({username}).sort( { "createdAt": -1 } )
         }else if(category){
             posts = await Post.find({category:{
                 $in:[category]
-            }})
+            }}).sort( { "createdAt": -1 } )
         }else if(newPosts){
             posts = await Post.find().sort( { "createdAt": -1 } ).limit(3);
         }else{
-            posts = await Post.find();
+            posts = await Post.find().sort( { "updatedAt": -1 } );
         }
         res.status(200).json(posts)
 

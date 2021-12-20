@@ -38,7 +38,7 @@ const Navbar = ({scrollY}) => {
                         <p className="nav-link m-0" style={{"cursor":"pointer"}} onClick={handleUser}>{user?"Logout":"Login"}</p>
                     </li>
                     {user &&
-                    <li className="nav-item">
+                    <li className="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.username}>
                     <img className="nav-link p-0" alt="..." src={user.profilePic} onError={(e)=>{e.target.onerror = null; e.target.src=noUserImg}}/>
                     </li>
                     }

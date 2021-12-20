@@ -6,8 +6,8 @@ const Post = ({post}) => {
     return (
         <div className="col">
             <div className="card h-100">
-                <div style={{"maxHeight": '250px', 'overflow': 'hidden'}}>
-                {post.photo?(<img src={publicFolder+ post.photo} className="card-img-top" alt="..."/>):<></>}
+                <div style={{"maxHeight": '200px', 'overflow': 'hidden'}}>
+                {post.photo && <img src={publicFolder+ post.photo} className="card-img-top" alt="..."/>}
                 </div>
             <div className="card-body">
             <Link to={`/post/${post._id}`}>

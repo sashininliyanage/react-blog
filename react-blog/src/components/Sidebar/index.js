@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react'
 import axios from "axios"
 import {Link} from 'react-router-dom'
 
-import {Wrapper, Category, Container} from './Sidebar.styles'
+import {Wrapper, Container} from './Sidebar.styles'
 import Post from '../Post'
 
 const Sidebar = () => {
@@ -31,10 +31,10 @@ const Sidebar = () => {
                 <h3>Categories</h3>
                 <Container>
                 {category.map((c,index)=>
-                (<Link to={`/posts?category=${c.name}`}  key={index}><Category>{c.name}</Category></Link>))}
+                (<Link to={`/posts?category=${c.name}`}  key={index}>{c.name}</Link>))}
                 </Container>
                 <h3>What's new?</h3>
-                <div className="row row-cols-1 g-4">
+                <div className="row row-cols-1 g-4 ">
                 {post.map((p,index)=>
                 (<Post post={p} key={index}/>))}
                 </div>
@@ -43,4 +43,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default Sidebar;

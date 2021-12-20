@@ -16,18 +16,19 @@ export const Home = ({scrollY, user}) => {
     const location = useLocation();
 
     useEffect(()=>{
-        console.log(location.search)
-        if(sessionStorage.getItem(`posts${location.search}`)){
-            setPosts(JSON.parse(sessionStorage.getItem(`posts${location.search}`)));
+        if(sessionStorage.getItem(`/posts/${location.search}`)){
+            setPosts(JSON.parse(sessionStorage.getItem("posts")))
             return
         }
         const fetchPosts = async()=>{
             const res = await axios.get(`/posts/${location.search}`)
-            sessionStorage.setItem(`posts${location.search}`, JSON.stringify(res.data))
             setPosts(res.data)
+            if(location.search===""){
+                sessionStorage.setItem("posts",JSON.stringify(res.data))
+            }
         }
-
         fetchPosts()
+
     },[location])
 
     return (
@@ -35,10 +36,9 @@ export const Home = ({scrollY, user}) => {
         <Navbar scrollY={scrollY} user={user}/>
         <Header/>
         <Wrapper>
-            <Posts posts={posts}/>
+            <Posts posts={posts} location={location}/>
             <Sidebar/>
         </Wrapper>
-        
         </>
     )
 }

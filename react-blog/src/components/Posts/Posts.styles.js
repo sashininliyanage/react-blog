@@ -16,3 +16,15 @@ export const Wrapper = styled.div`
         flex: 7;
     }
 `
+export const Title = styled.div`
+    margin: 0px;
+
+
+    font-size: var(--fontBig);    
+    font-weight: 600;
+    min-height: 40px;
+
+    @media screen and (max-width:768px){
+        font-size: var(--fontMed);
+    }
+`

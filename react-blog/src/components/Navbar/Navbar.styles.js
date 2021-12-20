@@ -21,5 +21,6 @@ export const Theme = styled.div`
         height:40px;
         width:40px;
         border-radius:100%;
+        cursor: pointer;
     }
 `;

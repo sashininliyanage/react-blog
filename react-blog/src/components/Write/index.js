@@ -1,4 +1,5 @@
 import React, {useState, useContext} from 'react'
+import {useNavigate} from 'react-router-dom'
 import {Context} from '../context/Context'
 import axios from 'axios'
 // Components
@@ -15,6 +16,8 @@ export const Write = () => {
     const [title, setTitle] = useState("")
     const [desc, setDesc] = useState("")
     const [category, setCategory] = useState(["other"])
+    const navigate = useNavigate();
+
 
     const handleSubmit = async(e)=>{
         e.preventDefault()
@@ -38,10 +41,15 @@ export const Write = () => {
 
         try{
             const res = await axios.post("/posts",newPost);
+            sessionStorage.removeItem("posts")
             window.location.replace("/post/"+res.data._id)
 
         }catch(err){}
         
+    }
+
+    const handleCancle = ()=>{
+        navigate('/')
     }
 
     return (
@@ -76,7 +84,7 @@ export const Write = () => {
                         <option value="10">three</option>
                     </select>
                 <button className="btn btn-outline-secondary customBtn" type="submit">Post</button>
-                <button className="btn btn-outline-secondary customBtn" type="button">Cancle</button>
+                <button className="btn btn-outline-secondary customBtn" type="button" onClick={handleCancle}>Cancle</button>
                 </div>
             </div>
             </form>

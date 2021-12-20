@@ -3,7 +3,7 @@ import {Link,  useNavigate} from 'react-router-dom';
 import {Context} from '../context/Context'
 
 import { Theme} from './Navbar.styles'
-import img1 from '../../images/header1.jpg'
+import noUserImg from '../../images/user.png'
 
 const Navbar = ({scrollY}) => {
     const {user} = useContext(Context)
@@ -39,7 +39,7 @@ const Navbar = ({scrollY}) => {
                     </li>
                     {user &&
                     <li className="nav-item">
-                    <img className="nav-link p-0" src={user.profilePic}/>
+                    <img className="nav-link p-0" alt="..." src={user.profilePic} onError={(e)=>{e.target.onerror = null; e.target.src=noUserImg}}/>
                     </li>
                     }
                 </ul>

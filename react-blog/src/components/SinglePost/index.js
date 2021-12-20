@@ -5,13 +5,14 @@ import axios from 'axios';
 import Navbar from '../Navbar';
 import {Wrapper, Content} from './SinglePost.styles'
 import Sidebar from '../Sidebar'
-import img1 from '../../images/portfolio-1.jpg'
 
 const SinglePost = ({user}) => {
 
+    const publicFolder = "http://localhost:5000/images/"
+
     const { postId } = useParams();
     const [post, setPost] = useState({});
-
+    
     useEffect(()=>{
         const fetchPost = async()=>{
             const res = await axios.get(`/posts/${postId}`)
@@ -25,12 +26,12 @@ const SinglePost = ({user}) => {
             <Navbar user={user}/>
             <Content>
             <div className="card">
+            {post.photo &&(<img src={publicFolder +post.photo} className="card-img-bottom" alt="..."/>)}
                 <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
-                    <p className="card-text"><small className="text-muted">Author: {post.username} | Last Update: {post.updatedAt}</small></p>
+                    <p className="card-text"><small className="text-muted">Author: {post.username} | Last Update: {new Date(post.updatedAt).toDateString()}</small></p>
                     <p className="card-text">{post.desc}</p>
                 </div>
-                {post.photo &&(<img src={post.photo} className="card-img-bottom" alt="..."/>)}
             </div>
             </Content>
             <Sidebar/>

@@ -2,11 +2,12 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const Post = ({post}) => {
+    const publicFolder = "http://localhost:5000/images/"
     return (
         <div className="col">
             <div className="card h-100">
                 <div style={{"maxHeight": '250px', 'overflow': 'hidden'}}>
-                {post.photo?(<img src={post.photo} className="card-img-top" alt="..."/>):<></>}
+                {post.photo?(<img src={publicFolder+ post.photo} className="card-img-top" alt="..."/>):<></>}
                 </div>
             <div className="card-body">
             <Link to={`/post/${post._id}`}>

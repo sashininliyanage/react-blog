@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react'
+import React, { useContext, useRef, useEffect, useState } from 'react'
 import {Context} from '../context/Context'
 import '../context/Actions'
 import {Link, useNavigate} from 'react-router-dom'
@@ -11,6 +11,7 @@ const Login = () => {
 
     const emailRef = useRef();
     const passwordRef = useRef();
+    const [error, setError] = useState("");
     const {dispatch, isFetching} = useContext(Context)
     const navigate = useNavigate();
 
@@ -41,6 +42,7 @@ const Login = () => {
 
         }catch(error){
             dispatch({type:"LOGIN_FAILURE"})
+            setError(error.message)
         }
         
     }
@@ -62,7 +64,7 @@ const Login = () => {
             </div>
             <div className="card-body">
             <form id="login" onSubmit={handleSubmit}>
-                <small id="loginError" className="form-text text-danger"></small>
+                <small id="loginError" className="form-text text-danger">{error}</small><br/>
                 <label  htmlFor="exampleInputEmail1">Email address</label>
                 <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" ref={emailRef} required autoComplete="off"/>
                 

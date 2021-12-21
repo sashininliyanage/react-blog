@@ -28,7 +28,6 @@ export const Home = ({scrollY, user}) => {
             }
         }
         fetchPosts()
-
     },[location])
 
     return (

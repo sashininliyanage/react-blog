@@ -22,7 +22,14 @@
 ---
 <br>
 
-## 
+## UI
+![blog](https://user-images.githubusercontent.com/64730828/146950229-c2471538-d33b-4417-961f-9196b513354d.PNG)
+
+## Yet to handle
+- Error handling
+- Add category to database
+- Search bar
+- About page
 
 
 

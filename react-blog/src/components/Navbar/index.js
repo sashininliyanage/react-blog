@@ -6,6 +6,7 @@ import { Theme} from './Navbar.styles'
 import noUserImg from '../../images/user.png'
 
 const Navbar = ({scrollY}) => {
+    const publicFolder = "http://localhost:5000/images/"
     const {user} = useContext(Context)
     const navigate = useNavigate();
 
@@ -31,15 +32,15 @@ const Navbar = ({scrollY}) => {
                     <li className="nav-item">
                         <Link to="/write" className="nav-link">Write</Link>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to="/about" className="nav-link">About</Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <p className="nav-link m-0" style={{"cursor":"pointer"}} onClick={handleUser}>{user?"Logout":"Login"}</p>
                     </li>
                     {user &&
                     <li className="nav-item" data-bs-toggle="tooltip" data-bs-placement="bottom" title={user.username}>
-                    <img className="nav-link p-0" alt="..." src={user.profilePic} onError={(e)=>{e.target.onerror = null; e.target.src=noUserImg}}/>
+                    <Link to="/settings"><img className="nav-link p-0" alt="..." src={publicFolder+user.profilePic} onError={(e)=>{e.target.onerror = null; e.target.src=noUserImg}}/></Link>
                     </li>
                     }
                 </ul>

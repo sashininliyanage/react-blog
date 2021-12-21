@@ -34,7 +34,11 @@ export const Edit = () => {
 
         if(file){
             const data = new FormData();
-            const filename = Date.now() + file.name;
+            let filename = Date.now() + file.name;
+            
+            if(post.photo){
+                filename = post.photo;
+            }
             data.append("name",filename)
             data.append("file",file)
             newPost.photo = filename

@@ -54,7 +54,7 @@ const SinglePost = () => {
                 <Link to={`/edit/${post._id}`}><i className="bi bi-pencil-square"></i></Link>
                 <i className="bi bi-trash" data-bs-toggle="modal" data-bs-target="#deleteConfirm"></i>
             </Icons>}
-            {post.photo &&(<img src={publicFolder +post.photo} className="card-img-bottom" alt="..."/>)}
+            {post.photo && (<img src={publicFolder + post.photo} className="card-img-bottom" alt="..."/>)}
                 <div className="card-body">
                     <h5 className="card-title">{post.title}</h5>
                     <p className="card-text"><small className="text-muted">Author: {post.username} | Last Update: {new Date(post.updatedAt).toDateString()}</small></p>

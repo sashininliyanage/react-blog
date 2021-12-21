@@ -7,6 +7,7 @@ import Write from './components/Write'
 import Login from './components/Login'
 import Register from './components/Register'
 import Edit from './components/Edit'
+import Settings from './components/Settings'
 import {Context} from './components/context/Context'
 
 // Styles
@@ -32,6 +33,7 @@ function App() {
         <Route path="/edit/:postId" element={<Edit/>} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>} />
+        <Route path="/settings" element={<Settings/>} />
         <Route path="/post/:postId" element={<SinglePost/>} />
       </Routes>
       <GlobalStyle/>
